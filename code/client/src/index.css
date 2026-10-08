@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+
+  --color-paper: #fbf8f3;
+  --color-card: #ffffff;
+  --color-ink: #1d2733;
+  --color-muted: #667085;
+  --color-line: #e8e1d5;
+
+  --color-brand: #0e6b66;
+  --color-brand-dark: #0a4f4b;
+  --color-brand-soft: #e3f1ef;
+
+  --color-accent: #f2a33a;
+  --color-accent-soft: #fdf0dc;
+
+  --color-good: #2e9e6b;
+  --color-good-soft: #e2f5ec;
+
+  --color-bad: #d6483f;
+  --color-bad-soft: #fde8e6;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.3s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+  }
+}
